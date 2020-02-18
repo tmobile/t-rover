@@ -7,7 +7,7 @@ Using the Google Play Store Android App "IP Webcam"
 use this as a starting point to capture images necessary to train the CNN ML.
 
 ## Machine Learning Model
-t-rover_cnn.ipynb a jupyter notebook from the previous version of T-racer.  This a foundation to create a ML model.
+t-rover_cnn.ipynb a jupyter notebook from the previous version of T-racer.  This a foundation to create an ML model.
 
 
 ## arudino interface
