@@ -12,3 +12,6 @@ t-rover_cnn.ipynb a jupyter notebook from the previous version of T-racer.  This
 
 ## arudino interface
 rc_motor_comms.ino basic communications mechanism between computer/phone and arudino uno
+
+## Unity FPV
+simple first person view using Samsung Gear VR goggles.  
