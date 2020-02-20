@@ -1,3 +1,15 @@
+
+//[1,2,3] channel 1 steering (left set)
+//[1,2,3] channel 2 throttle (right set)
+//[PxA,PxW,PxB] ==> [1,2,3] 
+
+// MCP4142 --> ARDUINO
+// CS(1) --> 10
+// SI(3) --> 11
+// SCK(2) --> 13
+// VSS(4) --> GND
+// VDD(14) --> +5V
+
 #include <SPI.h>
 // set pin 10 as the slave select for the digital pot:
 const int slaveSelectPin = 10;
@@ -65,7 +77,7 @@ void PrintVoltage()
 {
   int sampleADC = analogRead(WIPER_PIN);      // Take reading on wiper pin
   float volts = (sampleADC * V_REF) / 1023.0; // Convert to voltage
-  Serial.print("   ADC = ");
+  Serial.println("   ADC = ");
   Serial.print(sampleADC);
   Serial.print("tVoltage = ");
   Serial.println(volts, 3);
