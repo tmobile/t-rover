@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">TRoverImageCapture</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Camera Test</string>
+    <string name="title_notifications">Take Pictures</string>
+
+    <string name="picture_count">Picture Count:</string>
+    <string name="take_pictures">Start Taking Pictures</string>
+
+
+
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="intro_message">Information</string>
+    <string name="spot_name">Your Spot</string>
+    <string name="create_account">Create Account</string>
+    <string name="user_name">Username</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="need_an_account">Need an account?</string>
+    <string name="auth_failed">Account creation failed try again.</string>
+    <string name="sign_in_error">Error signing into your account.</string>
+    <string name="view_str">Views </string>
+    <string name="cancel">Cancel</string>
+    <string name="text_entry_str">Aa</string>
+
+    <string name="image_not_aquired">Error capturing image.  Please try again.</string>
+    <string name="share_image">Select where to share.</string>
+    <string name="title_hint">Title Entry</string>
+    <string name="images_per_second">Image Capture Rate:</string>
+    <string name="image_capture_server_ip">Place server ip address here</string>
+    <string name="ip_address_missing">Provide an IP address to server.</string>
+    <string name="ip_address_label">Enter server IP Address</string>
+</resources>

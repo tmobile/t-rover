@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primaryColor">#4db6ac</color>
+    <color name="primaryLightColor">#82e9de</color>
+    <color name="primaryDarkColor">#00867d</color>
+    <color name="primaryTextColor">#000000</color>
+
+    <color name="colorBlack">#000000</color>
+
+    <color name="windowBackground">@color/colorBlack</color>
+
+    <color name="control_background">@color/colorBlack</color>
+
+    <color name="colorEditText">#7b7c7f</color>
+
+    <color name="title_entry_color_yellow">#ffec00</color>
+    <color name="title_entry_color_blue">#0062ff</color>
+    <color name="title_entry_color_red">#fc3768</color>
+    <color name="title_entry_color_green">#0bbf6b</color>
+    <color name="title_entry_color_black">#000000</color>
+
+
+
+</resources>
