@@ -55,6 +55,10 @@ Once you have everything working images are stored in "t-rover/android/trover_se
 2. adb logcat shows logs from Android. If you see network connection exceptions then there is a problem.
 3. Ask me. :-)
 
+## Apk
+The latest apk is in "t-rover/android/trover_server/trover". Enjoy!
+
+
 ## Caveats
 Sorry, but I don't have the time to put a lot of time into this project so you may have to struggle. Struggle ~= life long knowledge. I will try to improve documentation after enough complaints.  Updating code is fun updating docs well... you know.
 
