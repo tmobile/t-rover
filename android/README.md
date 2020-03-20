@@ -1,8 +1,8 @@
 
 
-# t-rover - Android Image Capture progra and Nodejs serve
+# trover - Android Image Capture client program and Nodejs server
 
-Trover in this directory has a complete Android program for capturing images from the camera and sending those images via http to a server. Trover_server contains all the code to receive said images and save them to a directory structure. Trover_server is a very simple program written using nodejs and will run pretty much anywhere.  I have it running on a mac and raspberry pi zero.   
+trover in this directory has a complete Android program for capturing images from the camera and sending those images via http to a server. Trover_server contains all the code to receive said images and save them to a directory structure. trover_server is a very simple program written using nodejs and will run pretty much anywhere.  I have it running on a mac and raspberry pi zero.   
 
 To compile and change the Android program you will need Android Studio from here:
 
@@ -13,7 +13,7 @@ You will need nodejs installed for the server side.
 
 
 ## Image Capture
-Trover and trover_server are designed to work on a local wifi network and does not support https at the moment.  I shared a wifi network on my device to connect trover with trover_server.  Start trover_server by running the following command from the "t-rover/android/trover_server/trover" directory.  
+trover and trover_server are designed to work on a local wifi network and does not support https at the moment.  I shared a wifi network on my device to connect trover with trover_server.  Start trover_server by running the following command from the "t-rover/android/trover_server/trover" directory.  
 
 TMC02V64RDHTD5:trover tmoapploan$ bin/www
 20 Mar 09:03:50 - ImageCapturesServer available.
@@ -54,10 +54,6 @@ Once you have everything working images are stored in "t-rover/android/trover_se
 1. Always check network.
 2. adb logcat shows logs from Android. If you see network connection exceptions then there is a problem.
 3. Ask me. :-)
-
-## Apk
-The latest apk is in "t-rover/android/trover_server/trover". Enjoy!
-
 
 ## Caveats
 Sorry, but I don't have the time to put a lot of time into this project so you may have to struggle. Struggle ~= life long knowledge. I will try to improve documentation after enough complaints.  Updating code is fun updating docs well... you know.
