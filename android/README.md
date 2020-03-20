@@ -8,8 +8,23 @@ To compile and change the Android program you will need Android Studio from here
 
 https://developer.android.com/studio/index.html
 
+
 ## Install
-You will need nodejs installed for the server side.
+You will need nodejs installed for the server side. Node is easy and will run on various cloud sevices.
+
+https://nodejs.org/en/docs/
+
+Installing an apk:
+
+$ adb install trover_client-v1\(1.0\)-debug.apk
+
+You may have to use the -t or -f depending on your setup.
+
+$ adb install -t trover_client-v1\(1.0\)-debug.apk
+
+Look here for help.
+
+https://adbshell.com/commands/adb-install
 
 
 ## Image Capture
@@ -21,7 +36,6 @@ TMC02V64RDHTD5:trover tmoapploan$ bin/www
 You should see the line above print out.  
 
 
-Install the Android app via adb or Android Studio. Start the Android app.  On your local network determine the IP address of the server.  I use ifconfig on the server machine. Example ifconfig output below shows that my server is using IP address 192.168.11.61.  Enter the IP address into the only editable field in the app. Pressing the play button near the bottom of the screen will start image capture.  You should see output from trover_server showing downloads.
 
 
 TMC02V64RDHTD5:TMOAndroidApp tmoapploan$ ifconfig
@@ -44,6 +58,10 @@ en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 	media: autoselect
 	status: active
 
+
+Install the Android app via adb or Android Studio. Start the Android app.  On your local network determine the IP address of the server.  I use ifconfig on the server machine. Example ifconfig output below shows that my server is using IP address 192.168.11.61.  Enter the IP address into the only editable field in the app. Pressing the play button near the bottom of the screen will start image capture.  You should see output from trover_server showing downloads.
+
+![IMG ALT TEXT](images/screenshot.jpg)
 
 
 ## Images
