@@ -61,7 +61,7 @@ en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 
 Install the Android app via adb or Android Studio. Start the Android app.  On your local network determine the IP address of the server.  I use ifconfig on the server machine. Example ifconfig output below shows that my server is using IP address 192.168.11.61.  Enter the IP address into the only editable field in the app. Pressing the play button near the bottom of the screen will start image capture.  You should see output from trover_server showing downloads.
 
-![IMG ALT TEXT](images/screenshot.jpg)
+<img src="images/screencap.png"/>
 
 
 ## Images
