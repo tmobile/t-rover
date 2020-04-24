@@ -1,0 +1,7 @@
+opencv-contrib-python
+pyserial
+keras
+tensorflow
+Image
+pandas
+sklearn
