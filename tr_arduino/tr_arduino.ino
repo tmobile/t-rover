@@ -28,7 +28,7 @@ int counter = 0;
 unsigned long time = 1;
 unsigned long prev_time = 0;
 bool DEBUG = false;
-float FPS = 30.0f;
+float FPS = 60.0f;
 float target_delay_ms = 1.0/FPS * 1000.0f;
 
 void setup() {
@@ -56,8 +56,8 @@ void loop() {
   
   counter++;
   int CommandByte = 16; // to Write to Pot 1
-  digitalPotWrite(CMD_BYTE_POT_1, x_val);
-  digitalPotWrite(CMD_BYTE_POT_0, y_val);
+  digitalPotWrite(CMD_BYTE_POT_1, x_val); delayMicroseconds(5);
+  digitalPotWrite(CMD_BYTE_POT_0, y_val); 
   y_val_old = y_val;
   checkDelay(time, prev_time);
   prev_time = time;
@@ -65,6 +65,7 @@ void loop() {
 }
 
 void printOutput(long time, int x_val, int y_val) {
+  Serial.print("s,");
   Serial.print(time);
   Serial.print(",");
   Serial.print(x_val);
@@ -127,6 +128,7 @@ int digitalPotWrite(int CommandByte, int value) {
   SPI.transfer(value);
   // take the SS pin high to de-select the chip:
   digitalWrite(slaveSelectPin,HIGH);
+  delayMicroseconds(5);
   PrintVoltage();
 }
 
