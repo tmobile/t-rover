@@ -23,44 +23,57 @@ int CMD_BYTE_POT_0 = 0;
 int CMD_BYTE_POT_1 = 16;
 int x_val = 503;
 int y_val = 62;
-int y_val_old = 62;
+int x_val_old = 64;
+int y_val_old = 64;
 int counter = 0;
 unsigned long time = 1;
 unsigned long prev_time = 0;
 bool DEBUG = false;
 float FPS = 60.0f;
 float target_delay_ms = 1.0/FPS * 1000.0f;
+String command = "";
+String inputString = "";
+bool stringComplete = false;
+char mode = '?';
+char driveMode = 'j';
 
 void setup() {
-  Serial.begin(9600);
-  Serial.print ("Initial Voltage Setting: ");
-
-  // set the slaveSelectPin as an output:
+  Serial.begin(57600);
+  Serial.print ("T-ROVER SETUP\n");
   pinMode (slaveSelectPin, OUTPUT);
-  // initialize SPI:
   SPI.begin();
- }
-
-
+}
+  
 void loop() {
 
   time = millis();
 
-//  Serial.print("Switch:  ");
-//  Serial.print(digitalRead(SW_pin));
-  x_val = 128 - analogRead(X_pin) / 8;  //forward revere
-  y_val = 128 - analogRead(Y_pin) / 8;  //left right
+  if (stringComplete) {
+    if (mode == 'p') { //poll sensor
+      printOutput(time, x_val, y_val);
+    } else if (mode == 'd') {
+      if (inputString[0] == 'm' || inputString[0] == 'j') {
+        driveMode = inputString[0];
+      }
+    } else if (mode == 'a') {
+      x_val = inputString.toInt();
+    } else if (mode == 's') {
+      y_val = inputString.toInt();
+    }
 
-  printOutput(time, x_val, y_val);
-  printDebug(counter, time, x_val, y_val, prev_time);
-  
-  counter++;
-  int CommandByte = 16; // to Write to Pot 1
-  digitalPotWrite(CMD_BYTE_POT_1, x_val); delayMicroseconds(5);
+    // clear the string:
+    inputString = "";
+    stringComplete = false;
+    mode = '?';
+  }
+
+  if (driveMode == 'j') { //joystick mode
+    x_val = 128 - analogRead(X_pin) / 8;  //forward revere
+    y_val = 128 - analogRead(Y_pin) / 8;  //left right
+  } 
+
+  digitalPotWrite(CMD_BYTE_POT_1, x_val);
   digitalPotWrite(CMD_BYTE_POT_0, y_val); 
-  y_val_old = y_val;
-  checkDelay(time, prev_time);
-  prev_time = time;
 
 }
 
@@ -71,6 +84,10 @@ void printOutput(long time, int x_val, int y_val) {
   Serial.print(x_val);
   Serial.print(",");
   Serial.print(y_val);
+  Serial.print(",");
+  Serial.print(driveMode);
+  Serial.print(",");
+  Serial.print("x");
   Serial.print("\n");
 }
 
@@ -129,16 +146,25 @@ int digitalPotWrite(int CommandByte, int value) {
   // take the SS pin high to de-select the chip:
   digitalWrite(slaveSelectPin,HIGH);
   delayMicroseconds(5);
-  PrintVoltage();
 }
 
-void PrintVoltage()
-{
-  return;
-  int sampleADC = analogRead(WIPER_PIN);      // Take reading on wiper pin
-  float volts = (sampleADC * V_REF) / 1023.0; // Convert to voltage
-  Serial.println("   ADC = ");
-  Serial.print(sampleADC);
-  Serial.print("tVoltage = ");
-  Serial.println(volts, 3);
+
+void serialEvent() {
+  while (Serial.available()) {
+    // get the new byte:
+    char inChar = (char) Serial.read();
+
+    //px - get current joystick readings
+    //dmx - machine controlled mode
+    //djx - joystock controlled mode
+    //aXXx - set accelerate to XX where XX is an integer between 0 to 127
+    //sXXx - set steering to XX where XX is an integeer between 0 to 127
+    if (inChar == 'p' || inChar == 'd' || inChar == 'a' || inChar == 's') {  // p - poll joystick, d - drive
+      mode = inChar;
+    } else if (inChar != 'x' && inChar != '\n')
+      inputString += inChar;
+    else if (inChar == 'x') {
+      stringComplete = true;
+    }
+  }
 }
