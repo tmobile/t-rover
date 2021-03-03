@@ -15,7 +15,7 @@
     "fs-extra": "^5.0.0",
     "ioredis": "^3.2.2",
     "morgan": "^1.9.0",
-    "pug": "^2.0.0-beta11",
+    "pug": "^3.0.1",
     "serve-favicon": "^2.4.5",
     "underscore": "^1.8.3"
   }
