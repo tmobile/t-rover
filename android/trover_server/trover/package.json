@@ -6,11 +6,11 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.3",
     "dateformat": "^3.0.2",
     "debug": "^2.6.9",
-    "express": "^4.15.5",
+    "express": "^4.18.2",
     "express-fileupload": "^0.3.0",
     "fs-extra": "^5.0.0",
     "ioredis": "^3.2.2",
