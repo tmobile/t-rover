@@ -10,7 +10,7 @@
     "cookie-parser": "^1.4.3",
     "dateformat": "^3.0.2",
     "debug": "^2.6.9",
-    "express": "^4.15.5",
+    "express": "^4.17.3",
     "express-fileupload": "^0.3.0",
     "fs-extra": "^5.0.0",
     "ioredis": "^3.2.2",
